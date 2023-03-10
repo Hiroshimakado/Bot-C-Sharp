@@ -6,6 +6,7 @@ using Telegram.Bot.Exceptions;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.ReplyMarkups;
 
 namespace Bot_C_Sharp
 {
@@ -60,8 +61,14 @@ namespace Bot_C_Sharp
             Message sentMessage = await botClient.SendTextMessageAsync(
                 chatId: chatId,
                 text: "You said:\n" + messageText,
+
+                replyMarkup: new InlineKeyboardMarkup(
+                    InlineKeyboardButton.WithUrl("Перейти на сайт", "https://gay.website")
+                    ),
                 cancellationToken: cancellationToken);
         }
+
+        
 
         Task HandlePollingErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
         {
@@ -75,9 +82,5 @@ namespace Bot_C_Sharp
             Console.WriteLine(ErrorMessage);
             return Task.CompletedTask;
         }
-
-
-
-
     }
 }
