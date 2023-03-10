@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Telegram.Bot;
@@ -44,6 +45,27 @@ namespace Bot_C_Sharp
 
         async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
+            if (update.CallbackQuery != null)
+            {
+                if (update.CallbackQuery.Data == "pidor")
+                {
+                   await botClient.EditMessageTextAsync(
+                        update.CallbackQuery.Message.Chat.Id,
+                        update.CallbackQuery.Message.MessageId,
+                        "Факты"
+
+                        );
+                }
+                else
+                {
+                    await botClient.EditMessageTextAsync(
+                        update.CallbackQuery.Message.Chat.Id,
+                        update.CallbackQuery.Message.MessageId,
+                        "Пиздабол"
+
+                        );
+                }
+            }
             if (update.Message == null)
                 return;
             var message = update.Message;
@@ -54,18 +76,20 @@ namespace Bot_C_Sharp
 
             var messageText = message.Text;
 
-            var chatId = message.Chat.Id;
+            var chatId = message.From.Id;
 
             Console.WriteLine($"Received a '{messageText}' message in chat {chatId}.");
 
             Message sentMessage = await botClient.SendTextMessageAsync(
                 chatId: chatId,
-                text: "You said:\n" + messageText,
+                text: "Ты пидор?",
 
-                replyMarkup: new InlineKeyboardMarkup(
-                    InlineKeyboardButton.WithUrl("Перейти на сайт", "https://gay.website")
+                replyMarkup: new InlineKeyboardMarkup(new List<InlineKeyboardButton>() {
+                    InlineKeyboardButton.WithCallbackData("Да","pidor"),
+                    InlineKeyboardButton.WithCallbackData("Нет","not_pidor")
+                    }
                     ),
-                cancellationToken: cancellationToken);
+                cancellationToken: cancellationToken) ; 
         }
 
         
