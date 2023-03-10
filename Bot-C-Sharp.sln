@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot-C-Sharp", "Bot-C-Sharp\Bot-C-Sharp.csproj", "{8B9E7845-1D14-4F67-8C4D-51F0E1520966}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B9E7845-1D14-4F67-8C4D-51F0E1520966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B9E7845-1D14-4F67-8C4D-51F0E1520966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B9E7845-1D14-4F67-8C4D-51F0E1520966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B9E7845-1D14-4F67-8C4D-51F0E1520966}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F8FAFFE-3E41-4320-BC12-D3341A08C57E}
+	EndGlobalSection
+EndGlobal
